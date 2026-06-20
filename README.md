@@ -16,8 +16,7 @@ API REST para control de alacena y desperdicio cero.
 ## Estructura
 
 ```
-fridgeradar/
-├── backend/
+backend/
 │   ├── app/
 │   │   ├── api/v1/
 │   │   │   ├── endpoints/       # 13 endpoints, uno por recurso
@@ -41,7 +40,8 @@ fridgeradar/
 │   └── requirements-dev.txt
 ├── infra/
 │   ├── mysql/
-│   │   └── fridgeradar_db.sql   # Schema + triggers + events + views + procs + seeds
+│   │   ├── fridgeradar_db.sql   # Schema + triggers + events + views + procs + seeds
+│   │   └── fridgeradar.session.sql
 │   └── scripts/
 │       └── start_dev.sh         # Script para iniciar el servidor
 └── README.md
@@ -104,7 +104,7 @@ Editar `.env` con tus credenciales de MySQL:
 Conecta a MySQL y ejecuta el script SQL completo:
 
 ```bash
-mysql -u root -p < infra/mysql/fridgeradar_db.sql
+mysql -u root -p < backend/infra/mysql/fridgeradar_db.sql
 ```
 
 Esto crea:
@@ -128,7 +128,7 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 O usando el script:
 
 ```bash
-bash infra/scripts/start_dev.sh
+bash backend/infra/scripts/start_dev.sh
 ```
 
 ### Documentación interactiva
