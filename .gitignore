@@ -6,6 +6,7 @@ __pycache__/
 venv/
 env/
 .env
+.opencode
 
 # Tests
 .pytest_cache/
